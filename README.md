@@ -3,28 +3,15 @@ Exercise 3.1: StudentDB
 
 ![image](https://github.com/user-attachments/assets/c70f4a91-1bb9-4970-b6b7-432af38e5e1b)
 
-Define constructors and getters as required. Try to keep the classes immutable, i.e. define setter
-functions only if required for the use cases described below.
+Define constructors and getters as required. Try to keep the classes immutable, i.e. define setter functions only if required for the use cases described below.
 
-Remember the storage space optimization in Course: the property major is stored internally as a
-char and mapped to a string using the static data member majorById. Thus although the class uses
-only a character for storing the major, it accepts a std::string for the major in its constructor and
-provides a getter function std::string getMajor(), the optimization is completely hidden from the
-user of the class.
+Remember the storage space optimization in Course: the property major is stored internally as a char and mapped to a string using the static data member majorById. Thus although the class uses only a character for storing the major, it accepts a std::string for the major in its constructor and provides a getter function std::string getMajor(), the optimization is completely hidden from the user of the class.
 
-Matrikel numbers for new students are generated automatically. Each time a new student is
-created, the value from class member nextMatrikelNumber is used, which is incremented afterwards.
+Matrikel numbers for new students are generated automatically. Each time a new student is created, the value from class member nextMatrikelNumber is used, which is incremented afterwards.
 
-The class SimpleUI provides a simple user interface for the database. It is created with the student 
-database as argument. The run method continuously lists the available commands, waits for the
-user to choose one by entering the number and executes the command. Command execution may
-involve further data input from the user, of course. Command execution is implemented by
-invoking the methods of the various classes.
+The class SimpleUI provides a simple user interface for the database. It is created with the student database as argument. The run method continuously lists the available commands waits for the user to choose one by entering the number and executes the command. Command execution may involve further data input from the user, of course. Command execution is implemented by invoking the methods of the various classes.
 
-Note that all communication with user must be implemented in SimpleUI. Using cin or cout in any of
-the other classes results in 0 points for the submission. With respect to the general model-viewcontroller
-pattern (look it up!), the StudentDb is the model and the SimpleUI provides both the view
-and the controller.
+Note that all communication with user must be implemented in SimpleUI. Using cin or cout in any of the other classes results in 0 points for the submission. With respect to the general model-viewcontroller pattern (look it up!), the StudentDb is the model and the SimpleUI provides both the view and the controller.
 
 The commands to be implemented are:
 1. Add new Course: Queries the user for the required data and creates the new course in the database.
@@ -43,13 +30,16 @@ The commands to be implemented are:
 	The list of properties also includes the enrollments. When an enrollment is chosen for update, 
 	the user can remove the enrollment or enter a mark for the enrollment.
 
-Remember that Address is immutable, as discussed in the lecture. If any property of the address is
-changed, a new object must be created.
+Remember that Address is immutable, as discussed in the lecture. If any property of the address is changed, a new object must be created.
 
-There’s no prescribed format for the output of data. However, although this is only a user interface
-for testing purposes, you should keep usability in mind and format any output accordingly.
+There’s no prescribed format for the output of data. However, although this is only a user interface for testing purposes, you should keep usability in mind and format any output accordingly.
 
 Create a StudentDb and a SimpleUI in main and test your implementation.
 
-  
 Exercise 3.2: Persisting the Database
+Write the database content to a file. The file format is derived from the commonly used CSV format (https://en.wikipedia.org/wiki/Comma-separated_values).
+
+In order to store all data in one file, we first write a line with the number of data sets of a given kind and then all data sets, using a semicolon to separate the values. The file starts with the courses, followed by the student data (Student's data members and address data), followed by the enrollment data.
+
+Here’s a short example:
+
