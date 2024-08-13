@@ -1,5 +1,5 @@
 # Student_Database
-Exercise 3.1: StudentDB
+# Exercise 3.1: StudentDB
 
 ![image](https://github.com/user-attachments/assets/c70f4a91-1bb9-4970-b6b7-432af38e5e1b)
 
@@ -36,7 +36,8 @@ There’s no prescribed format for the output of data. However, although this is
 
 Create a StudentDb and a SimpleUI in main and test your implementation.
 
-Exercise 3.2: Persisting the Database
+# Exercise 3.2: Persisting the Database
+
 Write the database content to a file. The file format is derived from the commonly used CSV format (https://en.wikipedia.org/wiki/Comma-separated_values).
 
 In order to store all data in one file, we first write a line with the number of data sets of a given kind and then all data sets, using a semicolon to separate the values. The file starts with the courses, followed by the student data (Student's data members and address data), followed by the enrollment data.
